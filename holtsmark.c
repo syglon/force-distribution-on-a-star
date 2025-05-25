@@ -73,6 +73,7 @@ double rand_double(gsl_rng *rng){
 // Generate test star position according to OPTION
 void generate_test_star_position(double *x, double *y, double *z) {
     #if OPTION == SPHERE
+        double x_test, y_test, z_test;
         do {
             x_test = 2*rand_double(rng) - 1;
             y_test = 2*rand_double(rng) - 1;
