@@ -73,9 +73,11 @@ double rand_double(gsl_rng *rng){
 // Generate test star position according to OPTION
 void generate_test_star_position(double *x, double *y, double *z) {
     #if OPTION == SPHERE
-        *x = 2 * rand_double(rng) - 1;
-        *y = 2 * rand_double(rng) - 1;
-        *z = 2 * rand_double(rng) - 1;
+        do {
+            x_test = 2*rand_double(rng) - 1;
+            y_test = 2*rand_double(rng) - 1;
+            z_test = 2*rand_double(rng) - 1;
+        } while (x_test*x_test + y_test*y_test + z_test*z_test > 1.0);
     #elif OPTION == PLUMMER
         double a_test = 1.0;
         double X = rand_double(rng);
