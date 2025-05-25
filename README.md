@@ -4,8 +4,11 @@ holtsmark.c shows the force distribution on a randomly positioned test star in a
 holtsmark.c necessitates the use of GNU Scientific Library (GSL) and can be compiled with:
 ```
 gcc holtsmark.c -lgsl -lm -o holtsmark
+./holtsmark
 ```
 
-And the obtained data can be studied with plot.py
+And the obtained forces.dat file can be studied with plot.py
 
-Note: plot.py ignores the outliers in the data (data points which differ significantly than other which are below 0.5% and above 99.5% in this code) as they disrupt the histogram.
+Notes: 
+* plot.py ignores the outliers in the data (data points which differ significantly than other which are below 0.5% and above 99.5% in this code) as they disrupt the histogram.
+* KING option takes a while to run. Thus it is recommended to compile with SIMULATION_COUNT set to 10000.
