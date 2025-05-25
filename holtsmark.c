@@ -7,7 +7,7 @@
 #define SPHERE 1
 #define PLUMMER 2
 #define KING 3
-#define OPTION PLUMMER // Available options are SPHERE, PLUMMER, KING
+#define OPTION SPHERE // Available options are SPHERE, PLUMMER, KING
 
 #define N 10000 // Star count
 #define R 10.0 // Radius of the sphere
@@ -73,12 +73,11 @@ double rand_double(gsl_rng *rng){
 // Generate test star position according to OPTION
 void generate_test_star_position(double *x, double *y, double *z) {
     #if OPTION == SPHERE
-        double x_test, y_test, z_test;
         do {
-            x_test = 2*rand_double(rng) - 1;
-            y_test = 2*rand_double(rng) - 1;
-            z_test = 2*rand_double(rng) - 1;
-        } while (x_test*x_test + y_test*y_test + z_test*z_test > 1.0);
+            *x = 2 * rand_double(rng) - 1;
+            *y = 2 * rand_double(rng) - 1;
+            *z = 2 * rand_double(rng) - 1;
+        } while ((*x) * (*x) + (*y) * (*y) + (*z) * (*z) > 1.0);
     #elif OPTION == PLUMMER
         double a_test = 1.0;
         double X = rand_double(rng);
@@ -121,7 +120,7 @@ void generate_test_star_position(double *x, double *y, double *z) {
  
 }
 
-// Generate cluster star position according to OPTION
+// This function differ from the previous one only for the SPHERE option. Stars are uniformly distributed in a sphere.
 void generate_star_position(double *x, double *y, double *z) {
     #if OPTION == SPHERE
         double r = R * pow(rand_double(rng), 1.0/3.0);
