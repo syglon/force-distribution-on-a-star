@@ -9,19 +9,21 @@ This simulation models the evolution of a single test star moving through a stat
 To compile the simulation, use the Makefile provided.
 
 - For **uniform-mass** stars:
+  ```
   make
-
+  ```
 - To use the **Kroupa Initial Mass Function (IMF)** for stellar masses:
+  ```
   make USE_KROUPA=1
-
+  ```
 ---
 
 ## Running the Simulation
 
 After compilation, run the simulation with one of the following cluster models:
-
+```
   ./stellar_simulation [SPHERE | PLUMMER | KING]
-
+```
 Where:
 - SPHERE: Homogeneous density sphere
 - PLUMMER: Classic Plummer density profile
@@ -41,10 +43,10 @@ The output will be saved to:
 You can visualize the simulation output using the following Python scripts:
 
 - To generate histograms of energy and angular momentum changes:
-  python histograms.py
+  ```python histograms.py```
 
 - To analyze force distributions and compare them to theoretical models (e.g. Holtsmark or Gaussian):
-  python forces.py
+  ```python forces.py```
 
 ---
 
